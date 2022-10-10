@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <title>Puntos Maps</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.ts"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="map"></div>
+      <div id="sidebar">
+      <div>
+        <b>Sale de :</b> <option id="start" value="Isidro Fabela, 52004 Lerma de Villada, Méx.">RALCA</option>
+        <br />
+        <b>Regresa a:</b>
+      <option  id="end" value="Isidro Fabela, 52004 Lerma de Villada, Méx">RALCA</option>
+      <br /> 
+          <b>Destinos:</b> <br /> 
+          <select multiple id="waypoints">
+            <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+            <option value="Guadalajara">Guadalajara</option>
+          </select>
+          
+          <br />
+          <input type="submit" id="submit" value="Calcular" />
+        </div>
+        <div id="directions-panel"></div>
+      </div>
+    </div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
