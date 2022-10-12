@@ -5,6 +5,7 @@
  */
 
 function initMap(): void {
+  //
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
   const map = new google.maps.Map(
@@ -64,22 +65,21 @@ function calculateAndDisplayRoute(
       ) as HTMLElement;
 
       summaryPanel.innerHTML = '';
-      var totalkm = '';
-
+     
       // For each route, display summary information.
       for (let i = 0; i < route.legs.length; i++) {
-        const routeSegment = i + 1;
-        const kms = route.legs[i].distance!;
-        const total = route.legs[i].duration!;
 
+      const routeSegment = i + 1;
       summaryPanel.innerHTML +='<b>Ruta del Segmneto ' + routeSegment + '</b></b><br>';
       summaryPanel.innerHTML +='<b style="color:red";> De: </b> <br>'+ route.legs[i].start_address + '<br> <b style="color:red";> Para: </b> <br> ';
       summaryPanel.innerHTML += route.legs[i].end_address + '<br>';        
       summaryPanel.innerHTML +='<b style="color:red";> Total km: <b>' +route.legs[i].distance!.text + '<br>'
       summaryPanel.innerHTML +='<b style="color:red";> Tiempo general: <b>' + route.legs[i].duration!.text + '</b><br></b></b><br></b>';
-        //summaryPanel.innerHTML +=route.legs[i].duration_in_traffic!.text + '<br>';
-        //'Tiempo con trafico actual :'
+//      summaryPanel.innerHTML+= 'km totales' +final;
+   // summaryPanel.innerHTML += response.routes[i].legs[1].distance!.text;
+    //summaryPanel.innerHTML +=  i+route.legs[i].distance!.text
       }
+
     })
     .catch((e) => window.alert('Directions request failed due to ' + status));
 }
